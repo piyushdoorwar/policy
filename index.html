@@ -2,170 +2,366 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Privacy Policy</title>
+  <title>PromptForge - Privacy Policy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
+    :root {
+      --bg: #0b0f1c;
+      --bg-panel: #141420;
+      --bg-elevated: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.10);
+      --border-light: rgba(255, 255, 255, 0.16);
+
+      --text: #e6e9f0;
+      --text-secondary: rgba(230, 233, 240, 0.82);
+      --text-muted: rgba(230, 233, 240, 0.62);
+
+      --purple: #6739b7;
+      --purple-dark: #3c1d78;
+      --purple-light: #8b5cf6;
+
+      --yellow: #ffd700;
+      --yellow-light: #ffe680;
+
+      --green: #00d09c;
+
+      --radius: 12px;
+      --radius-sm: 10px;
+      --radius-card: 18px;
+
+      --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.22);
+      --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.35);
+      --shadow-purple: 0 16px 44px rgba(103, 57, 183, 0.28);
+
+      --focus: rgba(139, 92, 246, 0.30);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0b0f1c;
-      color: #e6e9f0;
-      max-width: 900px;
-      margin: auto;
-      padding: 32px;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(1200px 500px at 20% -10%, rgba(103, 57, 183, 0.35), transparent 60%),
+        radial-gradient(1000px 600px at 110% 20%, rgba(255, 215, 0, 0.10), transparent 55%),
+        var(--bg);
+      color: var(--text);
       line-height: 1.7;
     }
-    h1, h2, h3 {
-      color: #7df9ff;
+
+    a { color: var(--yellow-light); text-underline-offset: 2px; }
+    a:hover { color: var(--yellow); }
+
+    .wrap {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    ul {
-      margin-left: 20px;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
     }
-    small {
-      color: #9aa3b2;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: block;
+      padding: 7px;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      background: linear-gradient(160deg, rgba(103, 57, 183, 0.3), rgba(37, 37, 37, 0.92));
+      box-shadow:
+        0 10px 24px rgba(103, 57, 183, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .title-group h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      background: linear-gradient(135deg, var(--yellow), var(--purple-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subtitle {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      box-shadow: var(--shadow-lg);
+    }
+
+    .content {
+      padding: 18px 18px 20px;
+      max-width: 980px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .section-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+      background: linear-gradient(135deg, rgba(103, 57, 183, 0.25), rgba(103, 57, 183, 0.08));
+      color: var(--yellow-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-purple);
+      font-weight: 800;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .section-title {
+      margin: 2px 0 6px;
+      font-size: 22px;
+    }
+
+    .section-sub {
+      margin: 0 0 8px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      padding: 6px 10px;
+      font-size: 13px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pill.ok { border-color: rgba(0, 208, 156, 0.35); color: #a7f3d0; }
+    .pill.warn { border-color: rgba(255, 215, 0, 0.32); color: var(--yellow-light); }
+
+    .policy-body {
+      margin-top: 10px;
+      padding: 6px 2px 0;
+    }
+
+    .policy-body h3 {
+      margin: 18px 0 6px;
+      font-size: 15px;
+      color: var(--yellow-light);
+      letter-spacing: 0.02em;
+    }
+
+    .policy-body p {
+      margin: 0 0 10px;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .policy-body ul {
+      margin: 6px 0 12px 18px;
+      padding: 0;
+      color: var(--text);
+      font-size: 14.5px;
+    }
+
+    .policy-body li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .divider {
+      margin: 18px 0 10px;
+      border: none;
+      border-top: 1px solid var(--border);
+      opacity: 0.9;
+    }
+
+    .footer {
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 700px) {
+      .wrap { padding: 14px; }
+      .top { flex-direction: column; align-items: flex-start; }
+      .title-group h1 { font-size: 26px; }
+      .content { padding: 16px 14px 18px; }
+      .section-head { grid-template-columns: 44px 1fr; }
+      .section-badge { width: 44px; height: 44px; border-radius: 12px; }
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true"></div>
+        <div class="title-group">
+          <h1>Privacy Policy</h1>
+          <p class="subtitle">PromptForge Chrome Extension</p>
+        </div>
+      </div>
+    </div>
 
-<h1>Privacy Policy</h1>
+    <main class="content card">
+      <div class="section-head">
+        <div class="section-badge" aria-hidden="true">PF</div>
+        <div>
+          <h2 class="section-title">PromptForge Privacy Policy</h2>
+          <p class="section-sub">
+            PromptForge is built with a local-first approach. Your data stays with you, unless you explicitly choose to send it to a third-party AI provider.
+          </p>
 
-<p><strong>Last updated:</strong> December 2025</p>
+          <div class="meta-row" role="list">
+            <div class="pill" role="listitem"><strong>Last updated:</strong>&nbsp;February 2026</div>
+            <div class="pill ok" role="listitem"><strong>Developer collection:</strong>&nbsp;None</div>
+            <div class="pill warn" role="listitem"><strong>Third-party AI:</strong>&nbsp;Optional</div>
+          </div>
+        </div>
+      </div>
 
-<h2>1. Scope of This Policy</h2>
-<p>
-This Privacy Policy applies to all mobile applications, games, and related software products
-developed and published by the developer, across all supported platforms.
-</p>
+      <hr class="divider" />
 
-<p>
-By using any of the applications, you agree to the terms outlined in this policy.
-</p>
+      <div class="policy-body">
+        <h3>1. Scope</h3>
+        <p>
+          This Privacy Policy applies to the PromptForge browser extension (the “Extension”).
+          By installing or using PromptForge, you agree to this policy.
+        </p>
 
-<h2>2. Data Collection</h2>
-<p>
-The applications do <strong>not collect, transmit, process, or store</strong> any personal,
-sensitive, biometric, financial, or identifiable user data.
-</p>
+        <h3>2. Data Collection</h3>
+        <p>
+          PromptForge does <strong>not collect, store, or transmit</strong> personal data to the developer.
+          The Extension does not require accounts, logins, or identity information.
+        </p>
 
-<p>
-No accounts, profiles, logins, or user identifiers are required to use the applications.
-</p>
+        <h3>3. Local Data Storage</h3>
+        <p>
+          PromptForge stores limited data locally within your browser to provide core functionality, such as:
+        </p>
+        <ul>
+          <li>User preferences and settings</li>
+          <li>Saved prompts, templates, and custom instructions</li>
+          <li>Provider configuration choices</li>
+        </ul>
+        <p>
+          This data remains on your device and can be removed by clearing browser storage or uninstalling the Extension.
+        </p>
 
-<h2>3. Local Device Storage</h2>
-<p>
-The applications may store limited, non-personal data locally on your device, such as:
-</p>
-<ul>
-  <li>Game progress</li>
-  <li>High scores</li>
-  <li>Game settings and preferences (for example, sound or difficulty settings)</li>
-</ul>
+        <h3>4. User Inputs and AI Processing</h3>
+        <p>
+          PromptForge allows you to enter text (such as prompts) and generate outputs.
+          Processing occurs locally within the Extension unless you configure a third-party provider.
+        </p>
+        <p>
+          If you choose to use a third-party AI provider, your inputs and related content may be transmitted directly from your browser to that provider.
+          PromptForge does not route this data through developer-controlled servers.
+        </p>
+        <p>
+          The developer does not access, store, or monitor your prompts or outputs.
+        </p>
 
-<p>
-This data:
-</p>
-<ul>
-  <li>Remains entirely on the user’s device</li>
-  <li>Is not transmitted to any external servers</li>
-  <li>Is not accessible by the developer</li>
-</ul>
+        <h3>5. Third-Party Services</h3>
+        <p>
+          Third-party AI providers are optional and user-configured. Their handling of data is governed by their own privacy policies and terms.
+          The developer is not responsible for third-party data practices.
+        </p>
 
-<h2>4. Internet and Network Usage</h2>
-<p>
-The applications are designed to function fully offline.
-</p>
+        <h3>6. Permissions</h3>
+        <p>
+          PromptForge may request browser permissions (such as storage) strictly to enable core functionality.
+          The Extension is not designed for tracking and does not include advertising or analytics SDKs.
+        </p>
 
-<p>
-No internet connection is required for gameplay. Any internet access (if available on the device)
-is outside the control of the application and the developer.
-</p>
+        <h3>7. Data Security</h3>
+        <p>
+          Data handled by PromptForge remains within the browser environment. While reasonable safeguards are used,
+          no system can guarantee absolute security.
+        </p>
 
-<h2>5. Third-Party Services</h2>
-<p>
-The applications do <strong>not</strong> integrate with or depend on:
-</p>
-<ul>
-  <li>Advertising networks</li>
-  <li>Analytics platforms</li>
-  <li>Tracking SDKs</li>
-  <li>Social media services</li>
-  <li>External APIs or cloud services</li>
-</ul>
+        <h3>8. Children’s Privacy</h3>
+        <p>
+          PromptForge does not knowingly collect personal data from anyone, including children.
+        </p>
 
-<h2>6. Children’s Privacy</h2>
-<p>
-The applications are suitable for users of all ages.
-</p>
+        <h3>9. AI Output Disclaimer</h3>
+        <p>
+          Outputs may be inaccurate, incomplete, or misleading. Do not rely on outputs for legal, medical,
+          financial, or other professional advice. You are responsible for verifying outputs before use.
+        </p>
 
-<p>
-No personal data is knowingly collected from children or adults.
-Because no personal data is collected at all, there is no risk of misuse or exposure of children’s data.
-</p>
+        <h3>10. Changes to This Policy</h3>
+        <p>
+          This Privacy Policy may be updated from time to time. Continued use of PromptForge after updates indicates acceptance of the revised policy.
+        </p>
 
-<h2>7. User Responsibility and Health Disclaimer</h2>
-<p>
-The applications are provided for entertainment purposes only.
-</p>
+        <h3>11. Contact</h3>
+        <p>
+          If you have questions about this Privacy Policy, contact:
+          <strong>piyushdoorwar@outlook.com</strong>
+        </p>
 
-<p>
-The developer is not responsible for:
-</p>
-<ul>
-  <li>Excessive usage or prolonged screen time</li>
-  <li>Any physical, mental, or emotional effects resulting from gameplay</li>
-  <li>Distraction, fatigue, or dependency arising from use of the applications</li>
-</ul>
+        <hr class="divider" />
 
-<p>
-Users are encouraged to take breaks and use the applications responsibly.
-</p>
+        <div class="footer">
+          <span>© <span id="year"></span> PromptForge</span>
+          <span>Local-first. User-controlled.</span>
+        </div>
+      </div>
+    </main>
+  </div>
 
-<h2>8. Limitation of Liability</h2>
-<p>
-The applications are provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis.
-</p>
-
-<p>
-To the maximum extent permitted by applicable law, the developer shall not be liable for:
-</p>
-<ul>
-  <li>Any direct or indirect damages arising from use or inability to use the applications</li>
-  <li>Loss of data, progress, or device-specific information</li>
-  <li>Device malfunctions, performance issues, or incompatibilities</li>
-  <li>Any consequences resulting from misuse or unintended use</li>
-</ul>
-
-<h2>9. External Environment Disclaimer</h2>
-<p>
-The developer does not control the operating system, device manufacturer,
-app distribution platform, or network environment.
-</p>
-
-<p>
-Any issues arising from device behavior, system updates, third-party software,
-or platform policies are outside the responsibility of the developer.
-</p>
-
-<h2>10. Changes to This Policy</h2>
-<p>
-This Privacy Policy may be updated from time to time to reflect changes in features,
-legal requirements, or development practices.
-</p>
-
-<p>
-Continued use of the applications after changes indicates acceptance of the updated policy.
-</p>
-
-<h2>11. Contact Information</h2>
-<p>
-If you have any questions or concerns regarding this Privacy Policy, you may contact:
-</p>
-
-<p>
-<strong>piyushdoorwar@outlook.com</strong>
-</p>
-
-<hr />
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
